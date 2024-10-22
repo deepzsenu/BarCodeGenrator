@@ -1,6 +1,7 @@
+
 # Barcode Generator
 
-A Python-based desktop application that generates barcodes in multiple formats. Users can select a barcode type, input data, and save the generated barcode as a PNG file. The application is built using `Tkinter` for the graphical user interface (GUI) and `python-barcode` for barcode generation.
+A Python-based desktop application that generates barcodes in multiple formats. Users can select a barcode type, input data, and save the generated barcode as a PNG file. The application is built using `Tkinter` for the graphical user interface (GUI) and `python-barcode` for barcode generation. The project also includes a standalone `.exe` application for Windows, making it easy to run without requiring Python.
 
 ## Features
 
@@ -13,6 +14,7 @@ A Python-based desktop application that generates barcodes in multiple formats. 
   - ISBN10
 - Save barcodes as PNG images.
 - Display generated barcode in the application window.
+- Standalone Windows executable version available.
 
 ## Technologies Used
 
@@ -20,15 +22,16 @@ A Python-based desktop application that generates barcodes in multiple formats. 
 - **Tkinter**: Used for building the desktop GUI application.
 - **python-barcode**: For generating barcodes in different formats.
 - **Pillow**: (PIL) used for image handling and resizing the barcode image.
+- **PyInstaller**: Used to package the application into a standalone `.exe` for Windows.
 
-## Prerequisites
+## Prerequisites (For Running from Python Source Code)
 
 - Python 3.6 or higher
 - Virtual Environment (optional but recommended)
 
 ### Python Libraries
 
-You will need to install the following Python libraries:
+You will need to install the following Python libraries if running from source:
 
 - `python-barcode`
 - `Pillow` (for image handling)
@@ -39,7 +42,7 @@ You can install them using the following command:
 pip install python-barcode Pillow
 ```
 
-## Installation & Setup
+## Installation & Setup (For Running from Source)
 
 1. **Clone the Repository**
 
@@ -76,19 +79,46 @@ pip install python-barcode Pillow
 
 4. **Run the Application**
 
-   To run the Barcode Generator application, execute:
+   To run the Barcode Generator application from Python source, execute:
 
    ```bash
    python barcode_app.py
    ```
 
+## Installation & Setup (For Running the Executable)
+
+1. Download the pre-built `.exe` file from the [releases page](https://github.com/deepzsenu/barcode-generator/releases).
+2. Double-click the `.exe` to run the Barcode Generator application without needing Python installed.
+
 ## Usage
 
-1. Select the barcode type from the dropdown menu.
-2. Enter the data to be encoded in the input field.
-3. Click the **"Generate Barcode"** button.
-4. A file dialog will prompt you to save the barcode as a PNG image.
-5. The generated barcode will be displayed within the application window.
+1. **Running from Source**: 
+   - Select the barcode type from the dropdown menu.
+   - Enter the data to be encoded in the input field.
+   - Click the **"Generate Barcode"** button.
+   - A file dialog will prompt you to save the barcode as a PNG image.
+   - The generated barcode will be displayed within the application window.
+
+2. **Running the Executable**:
+   - The usage is the same as running from source, but without needing to install any dependencies. Simply open the `.exe`, follow the same steps, and generate barcodes.
+
+## How to Create the Executable (Optional)
+
+To create the Windows executable yourself, use `PyInstaller`. Here's how you can package the Python script into a `.exe`:
+
+1. Install PyInstaller:
+
+   ```bash
+   pip install pyinstaller
+   ```
+
+2. Run the following command to generate a standalone executable:
+
+   ```bash
+   pyinstaller --onefile --windowed --name "MyBarcodeApp" --icon=assets/icon.ico barcode_app.py
+   ```
+
+   This will create the `MyBarcodeApp.exe` file in the `dist` folder.
 
 ## Screenshots
 
@@ -108,10 +138,9 @@ pip install python-barcode Pillow
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome. Feel free to check the [issues page](https://github.com/username/barcode-generator/issues) if you want to contribute.
+Contributions, issues, and feature requests are welcome. Feel free to check the [issues page](https://github.com/deepzsenu/barcode-generator/issues) if you want to contribute.
 
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
----
