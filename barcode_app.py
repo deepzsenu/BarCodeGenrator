@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox, filedialog
-import App
+import barcode  # Corrected import
 from barcode.writer import ImageWriter
 from PIL import Image, ImageTk
 
@@ -10,12 +10,12 @@ def generate_barcode():
     
     # Dictionary of supported barcode formats
     barcode_formats = {
-        'EAN13': App.get_barcode_class('ean13'),
-        'EAN8': App.get_barcode_class('ean8'),
-        'UPC-A': App.get_barcode_class('upca'),
-        'Code128': App.get_barcode_class('code128'),
-        'ISBN13': App.get_barcode_class('isbn13'),
-        'ISBN10': App.get_barcode_class('isbn10'),
+        'EAN13': barcode.get_barcode_class('ean13'),
+        'EAN8': barcode.get_barcode_class('ean8'),
+        'UPC-A': barcode.get_barcode_class('upca'),
+        'Code128': barcode.get_barcode_class('code128'),
+        'ISBN13': barcode.get_barcode_class('isbn13'),
+        'ISBN10': barcode.get_barcode_class('isbn10'),
     }
     
     # Validate inputs
